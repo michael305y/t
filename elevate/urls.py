@@ -4,4 +4,5 @@ from elevate import views
 urlpatterns = [
     
     path('', views.show_page, name=''),
+    path('insert_listing', views.listing_form, name='insert_listing'),
 ]

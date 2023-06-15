@@ -76,22 +76,22 @@ WSGI_APPLICATION = 'real.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
-# # SQLite DB
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-
-
-# POSTGRES DB details
-import dj_database_url
-
+# SQLite DB
 DATABASES = {
-    'default' : dj_database_url.parse('postgresql://postgres:fA9jbOfeCDfshcvhWpGm@containers-us-west-163.railway.app:7579/railway')
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+
+
+
+# # POSTGRES DB details
+# import dj_database_url
+
+# DATABASES = {
+#     'default' : dj_database_url.parse('postgresql://postgres:fA9jbOfeCDfshcvhWpGm@containers-us-west-163.railway.app:7579/railway')
+# }
 
 
 # # MySQL DB details

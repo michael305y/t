@@ -86,20 +86,20 @@ WSGI_APPLICATION = 'real.wsgi.application'
 
 
 
-# # POSTGRES DB details
-# import dj_database_url
-
-# DATABASES = {
-#     'default' : dj_database_url.parse('postgresql://postgres:oKlFZK4yQA9JTn7FKllW@containers-us-west-12.railway.app:7573/railway')
-# }
-
-
-# MySQL DB details
+# POSTGRES DB details
 import dj_database_url
 
 DATABASES = {
-    'default' : dj_database_url.parse('mysql://root:HajgjHFrNj8FCEwTDx2f@containers-us-west-192.railway.app:7742/railway')
+    'default' : dj_database_url.parse('postgresql://postgres:fA9jbOfeCDfshcvhWpGm@containers-us-west-163.railway.app:7579/railway')
 }
+
+
+# # MySQL DB details
+# import dj_database_url
+
+# DATABASES = {
+#     'default' : dj_database_url.parse('mysql://root:HajgjHFrNj8FCEwTDx2f@containers-us-west-192.railway.app:7742/railway')
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

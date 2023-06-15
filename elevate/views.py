@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 from .forms import Listing_Form
+from . models  import Listing
 # Create your views here.
 def show_page(request):
     context = {
@@ -30,3 +31,31 @@ def listing_form(request):
     }
 
     return render(request, 'listing_form.html', context)
+
+
+# fetches or retrieves all the items in the DB
+def list_all_items(request):
+    all_listings = Listing.objects.all()  # shows all items available without filtering
+
+    # all_listings = Listing.objects.filter(address='ruai') # only shows addresses from ruai
+
+    # all_listings = Listing.objects.filter(title__contains = '1 bedroom') # filters the items based on title
+
+
+    context = {
+        'all_listings': all_listings
+        
+
+    }
+
+    return render(request, 'all_listings.html', context)
+
+
+
+
+
+
+
+
+
+

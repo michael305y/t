@@ -23,9 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-#4&t7fst*a!8l0__szf@lus(r%-a3z_oyb*f&f!v+z7^lawrmw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1']
+# ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -86,20 +87,22 @@ WSGI_APPLICATION = 'real.wsgi.application'
 
 
 
-# POSTGRES DB details
-import dj_database_url
-
-DATABASES = {
-    'default' : dj_database_url.parse('postgresql://postgres:fA9jbOfeCDfshcvhWpGm@containers-us-west-163.railway.app:7579/railway')
-}
-
-
-# # MySQL DB details
+# # VERCEL POSTGRES DB details
 # import dj_database_url
 
 # DATABASES = {
-#     'default' : dj_database_url.parse('mysql://root:HajgjHFrNj8FCEwTDx2f@containers-us-west-192.railway.app:7742/railway')
+#     'default' : dj_database_url.parse('postgresql://postgres:fA9jbOfeCDfshcvhWpGm@containers-us-west-163.railway.app:7579/railway')
 # }
+
+
+# RENDER  Postgres DB details
+import dj_database_url
+
+DATABASES = {
+    'default' : dj_database_url.parse('postgres://django_house_lisiting_db_user:XP0vZYTwb2V2TO1yjbh69JGD8uG2xXqZ@dpg-ci5snsdph6ekv7ti2m2g-a.oregon-postgres.render.com/django_house_lisiting_db')
+}
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

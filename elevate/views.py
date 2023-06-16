@@ -51,6 +51,17 @@ def list_all_items(request):
     return render(request, 'all_listings.html', context)
 
 
+# to retrieve a single lisitng by using the id field
+def single_listing(request, pk):
+    single_listing = Listing.objects.get(id=pk)
+
+    context = {
+        'listing':single_listing
+    }
+
+    return render(request, 'listing.html', context)
+
+
 
 
 

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    {% block content %}
+    <div class="px-3 py-1 bg-gray-100 rounded-sm">
+      <h3 class="text-3xl text-gray-900">
+        {{ listing.id }} : {{ listing.title }}
+      </h3>
+      <p class="text-gray-900">Price - Ksh.{{ listing.price }}</p>
+      <p class="text-gray-900">bedrooms - {{ listing.number_of_bedrooms }}</p>
+      <p class="text-gray-900">Bathrooms - {{ listing.number_of_bathrooms }}</p>
+      <p class="text-gray-900">
+        Square Footage - {{ listing.square_footage }}m^2
+      </p>
+      <p class="text-gray-900">Address - {{ listing.address }}</p>
+
+      <!-- The code verifies if a user is a superuser.If not then, the two buttons will not be displayed -->
+      {% if request.user.is_staff %}
+
+      <div class="mt-4 py-4 border-t border-gray-300">
+        <a href="update_listing/{{ listing.id }}" class="text-blue-900"
+          >Update</a
+        >
+
+        <a href="delete_listing/{{ listing.id }}" class="ml-3 text-red-400"
+          >Delete</a
+        >
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- <h1>Listings in Details</h1>
+
+    {{ listing.id }} : {{ listing.title }}
+    <a href="update_listing/{{ listing.id }}">Update</a>
+
+    <br />
+    <a href="delete_listing/{{ listing.id }}">Delete</a> -->
+    {% endblock content %}
+  </body>
+</html>

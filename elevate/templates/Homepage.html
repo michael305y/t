@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,9 +7,12 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Hello Welcome</h1>
-    <a href="insert_listing">Insert Listing</a>
+    {% block content %}
+    <h3><strong>Hello Welcome</strong></h3>
+    <a href="insert_listing" class="text-green-400">Insert Listing</a>
     <br />
-    <a href="all_listings">Show all the Listings</a>
+
+    <a href="all_listings" class="text-blue-900">Show all the Listings</a>
+    {% endblock %}
   </body>
 </html>

@@ -99,9 +99,9 @@ WSGI_APPLICATION = 'real.wsgi.application'
 import dj_database_url
 
 DATABASES = {
-    'default' : dj_database_url.parse('postgres://django_house_lisiting_db_user:XP0vZYTwb2V2TO1yjbh69JGD8uG2xXqZ@dpg-ci5snsdph6ekv7ti2m2g-a.oregon-postgres.render.com/django_house_lisiting_db')
+    'default' : dj_database_url.parse('postgres://real_estate_so32_user:0eXEfJdLn3xMQaID7wf333QmWXYXolAA@dpg-ci64b6enqql3q386d8ng-a.oregon-postgres.render.com/real_estate_so32')
 }
-
+                                       
 
 
 # Password validation

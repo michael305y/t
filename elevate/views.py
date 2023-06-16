@@ -61,7 +61,32 @@ def single_listing(request, pk):
 
     return render(request, 'listing.html', context)
 
+# updating our listings (UPDATE)
+def listing_update(request, pk):
+    listing_update =  Listing.objects.get(id=pk)  # first get the specific item you want to update
 
+    form = Listing_Form(instance=listing_update)  # the specific instance to update is passed
+
+    if request.method == 'POST':
+        form = Listing_Form(request.POST, instance=listing_update, files=request.FILES)
+        if form.is_valid:
+            form.save()
+
+            return redirect('all_listings')
+
+    context = {
+            'form': form
+    }
+
+    return render(request, 'listing_form.html', context)
+
+
+def listing_delete(request, pk):
+    listing_delete = Listing.objects.get(id=pk)
+
+    listing_delete.delete()
+
+    return redirect('all_listings')
 
 
 

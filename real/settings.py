@@ -28,6 +28,7 @@ SECRET_KEY = 'django-insecure-#4&t7fst*a!8l0__szf@lus(r%-a3z_oyb*f&f!v+z7^lawrmw
 # A better way to change DEBUG option automatically depending on the environment
 DEBUG = 'RENDER' not in os.environ
 
+# to determine which hosts can access endpoints in the case of APIs
 # ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1']
 ALLOWED_HOSTS = ['*']
 
@@ -47,6 +48,9 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -106,9 +110,10 @@ DATABASES = {
     
 
     'default': dj_database_url.config(
-        # Feel free to alter this value to suit your needs.
+        
         default='postgres://real_estate_so32_user:0eXEfJdLn3xMQaID7wf333QmWXYXolAA@dpg-ci64b6enqql3q386d8ng-a.oregon-postgres.render.com/real_estate_so32',
-        conn_max_age=600
+        conn_max_age=600,
+        conn_health_checks=True,
     )
 }
                                        
@@ -149,10 +154,21 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'media')
+]
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+###############    #######################
 
+### media files
 MEDIA_URL = 'media/'
-MEDIA_ROOT = 'media'
+MEDIA_ROOT = 'media'      ##for local developemnts
+
+# MEDIA_ROOT = BASE_DIR / ""
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

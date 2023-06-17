@@ -15,6 +15,8 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+import os
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -23,7 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-#4&t7fst*a!8l0__szf@lus(r%-a3z_oyb*f&f!v+z7^lawrmw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# A better way to change DEBUG option automatically depending on the environment
+DEBUG = 'RENDER' not in os.environ
 
 # ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1']
 ALLOWED_HOSTS = ['*']
@@ -99,7 +102,14 @@ WSGI_APPLICATION = 'real.wsgi.application'
 import dj_database_url
 
 DATABASES = {
-    'default' : dj_database_url.parse('postgres://real_estate_so32_user:0eXEfJdLn3xMQaID7wf333QmWXYXolAA@dpg-ci64b6enqql3q386d8ng-a.oregon-postgres.render.com/real_estate_so32')
+    # 'default' : dj_database_url.parse('postgres://real_estate_so32_user:0eXEfJdLn3xMQaID7wf333QmWXYXolAA@dpg-ci64b6enqql3q386d8ng-a.oregon-postgres.render.com/real_estate_so32')
+    
+
+    'default': dj_database_url.config(
+        # Feel free to alter this value to suit your needs.
+        default='postgres://real_estate_so32_user:0eXEfJdLn3xMQaID7wf333QmWXYXolAA@dpg-ci64b6enqql3q386d8ng-a.oregon-postgres.render.com/real_estate_so32',
+        conn_max_age=600
+    )
 }
                                        
 

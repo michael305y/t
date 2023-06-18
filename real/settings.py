@@ -113,7 +113,7 @@ WSGI_APPLICATION = 'real.wsgi.application'
 # import dj_database_url
 
 # DATABASES = {
-#     'default' : dj_database_url.parse('postgresql://postgres:fA9jbOfeCDfshcvhWpGm@containers-us-west-163.railway.app:7579/railway')
+
 # }
 
 
@@ -121,13 +121,7 @@ WSGI_APPLICATION = 'real.wsgi.application'
 import dj_database_url
 
 DATABASES = {
-    # 'default' : dj_database_url.parse('postgres://real_estate_so32_user:0eXEfJdLn3xMQaID7wf333QmWXYXolAA@dpg-ci64b6enqql3q386d8ng-a.oregon-postgres.render.com/real_estate_so32')
-    
-
     'default': dj_database_url.config(
-        
-        # default='postgres://real_estate_so32_user:0eXEfJdLn3xMQaID7wf333QmWXYXolAA@dpg-ci64b6enqql3q386d8ng-a.oregon-postgres.render.com/real_estate_so32',
-
         default = os.environ.get('default_DB'),
         conn_max_age=600,
         conn_health_checks=True,

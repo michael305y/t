@@ -1,5 +1,7 @@
 from django.db import models
 
+from cloudinary.models import CloudinaryField
+
 
 # Create your models here. which are just tables in the DB schema
 class Listing(models.Model):
@@ -9,7 +11,10 @@ class Listing(models.Model):
     number_of_bathrooms = models.IntegerField()
     square_footage = models.IntegerField()
     address = models.CharField(max_length=100)
-    image = models.ImageField()
+    
+    # image = models.ImageField()
+
+    image = CloudinaryField('image')
 
     def __str__(self) -> str:
         return self.title                                                                                                                                                                                                                                                                                                                                                                                                                                                                            

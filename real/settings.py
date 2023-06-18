@@ -17,6 +17,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 import os
 
+# clouudinary imports
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -172,3 +177,12 @@ MEDIA_ROOT = 'media'      ##for local developemnts
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+# cloudinary_django CONF settings for integration
+cloudinary.config(
+    cloud_name="dembpr5hk",
+    api_key="895483863926583",
+    api_secret="d40LAjKXRctwtzt7OvCrf5y0FxE"
+)

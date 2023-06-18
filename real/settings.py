@@ -126,7 +126,9 @@ DATABASES = {
 
     'default': dj_database_url.config(
         
-        default='postgres://real_estate_so32_user:0eXEfJdLn3xMQaID7wf333QmWXYXolAA@dpg-ci64b6enqql3q386d8ng-a.oregon-postgres.render.com/real_estate_so32',
+        # default='postgres://real_estate_so32_user:0eXEfJdLn3xMQaID7wf333QmWXYXolAA@dpg-ci64b6enqql3q386d8ng-a.oregon-postgres.render.com/real_estate_so32',
+
+        default = os.environ.get('default_DB'),
         conn_max_age=600,
         conn_health_checks=True,
     )
@@ -188,14 +190,6 @@ MEDIA_ROOT = 'media'      ##for local developemnts
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-
-# cloudinary_django CONF settings for integration
-# cloudinary.config(
-#     cloud_name="dembpr5hk",
-#     api_key="895483863926583",
-#     api_secret="d40LAjKXRctwtzt7OvCrf5y0FxE"
-# )
 
 # cloudinary_django CONF settings for integration
 cloudinary.config(

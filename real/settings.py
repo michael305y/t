@@ -165,7 +165,7 @@ STATICFILES_DIRS = [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 ###############    #######################
 
-### media files
+### To serve media files
 MEDIA_URL = 'media/'
 MEDIA_ROOT = 'media'      ##for local developemnts
 

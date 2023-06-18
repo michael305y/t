@@ -191,15 +191,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # cloudinary_django CONF settings for integration
-cloudinary.config(
-    cloud_name="dembpr5hk",
-    api_key="895483863926583",
-    api_secret="d40LAjKXRctwtzt7OvCrf5y0FxE"
-)
-
-# # cloudinary_django CONF settings for integration
 # cloudinary.config(
-#     cloud_name = os.getenv('cloud_name'),
-#     api_key = os.environ.get('api_key'),
-#     api_secret = os.environ.get('api_secret')
+#     cloud_name="dembpr5hk",
+#     api_key="895483863926583",
+#     api_secret="d40LAjKXRctwtzt7OvCrf5y0FxE"
 # )
+
+# cloudinary_django CONF settings for integration
+cloudinary.config(
+    cloud_name = os.getenv('cloud_name'),
+    api_key = os.environ.get('api_key'),
+    api_secret = os.environ.get('api_secret')
+)

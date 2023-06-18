@@ -22,12 +22,22 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
+import os
+from dotenv import load_dotenv
+
+
+ENV_FILE_PATH = os.path.join(BASE_DIR, '../.t/CONFIG_DIR/.env')
+
+# Load the .env file
+load_dotenv(ENV_FILE_PATH)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#4&t7fst*a!8l0__szf@lus(r%-a3z_oyb*f&f!v+z7^lawrmw'
+# SECRET_KEY = 'django-insecure-#4&t7fst*a!8l0__szf@lus(r%-a3z_oyb*f&f!v+z7^lawrmw'
+
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # A better way to change DEBUG option automatically depending on the environment
@@ -186,3 +196,10 @@ cloudinary.config(
     api_key="895483863926583",
     api_secret="d40LAjKXRctwtzt7OvCrf5y0FxE"
 )
+
+# # cloudinary_django CONF settings for integration
+# cloudinary.config(
+#     cloud_name = os.getenv('cloud_name'),
+#     api_key = os.environ.get('api_key'),
+#     api_secret = os.environ.get('api_secret')
+# )
